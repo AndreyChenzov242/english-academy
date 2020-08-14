@@ -1,0 +1,140 @@
+.intro {
+  height: calc(100vh - #{$header_height});
+  min-height: 355px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.intro__hover-context {
+  height: 100%;
+  &:hover .intro__background {
+    filter: blur(10px);
+  }
+}
+
+.intro__no-hover-context {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.intro__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: url(../images/intro.jpg) no-repeat center;
+  background-size: cover;
+
+  filter: blur(0);
+  transition: filter 0.4s linear;
+}
+
+.intro__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro__text {
+  padding: 20px;
+
+  font-size: 1rem;
+  text-align: center;
+
+  color: $white_color;
+}
+
+.intro__background-blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 10;
+}
+
+.intro__mouse {
+  position: absolute;
+  bottom: 40px;
+  left: calc(50% - 10px);
+
+  width: 20px;
+  height: 40px;
+  border-radius: 10px;
+  border: 3px solid $white_color;
+
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+
+  transform-origin: 50% 150%;
+
+  // Hide on devices without a mouse
+  display: none;
+  @media (pointer: fine) {
+    display: block;
+  }
+
+  &:hover {
+    animation: mouse-wave 0.7s ease-in-out 1;
+
+    @keyframes mouse-wave {
+      0% {
+        transform: rotateZ(0deg);
+      }
+      20% {
+        transform: rotateZ(-10deg);
+      }
+      40% {
+        transform: rotateZ(10deg);
+      }
+      60% {
+        transform: rotateZ(-10deg);
+      }
+      80% {
+        transform: rotateZ(10deg);
+      }
+      100% {
+        transform: rotateZ(0deg);
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 4px;
+    height: 8px;
+
+    position: absolute;
+    left: 50%;
+    top: 5%;
+
+    background: $white_color;
+    border-radius: 2px;
+
+    animation: mouse-wheel 1.5s ease-in-out infinite;
+
+    @keyframes mouse-wheel {
+      0% {
+        transform: translate(-50%, 10%);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(-50%, 90%);
+        opacity: 0;
+      }
+    }
+  }
+}

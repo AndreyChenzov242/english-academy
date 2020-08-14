@@ -1,0 +1,5 @@
+gulpfile.js
+package-lock.json
+node_modules/*
+.vscode/*
+fonts/*

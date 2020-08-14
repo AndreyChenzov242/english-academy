@@ -1,0 +1,39 @@
+.pros-section__background {
+  display: none;
+  height: 700px;
+  margin: 0 auto;
+}
+
+.pros-section__wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: -30px;
+
+  overflow: hidden;
+
+  @media only screen and (min-width: 768px) {
+    max-width: 768px;
+
+    background: url(../images/big-ben.svg) 50% 13px / contain no-repeat;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}
+
+.pros-section__left-article,
+.pros-section__right-article {
+  @media only screen and (min-width: 768px) {
+    display: block;
+    width: 300px;
+  }
+}
+
+.pros-section__left-article {
+  text-align: right;
+}
+
+.pros-section__right-article {
+  text-align: left;
+}

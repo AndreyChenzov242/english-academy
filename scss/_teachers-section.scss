@@ -1,0 +1,74 @@
+.teacher-article {
+  max-width: 900px;
+
+  padding: 25px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+
+  background: $white_color;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+
+  @media only screen and (min-width: 600px) {
+    display: flex;
+  }
+}
+
+.teacher-article__photo {
+  display: block;
+
+  margin: 0 auto;
+
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  flex-grow: 0;
+}
+
+.teacher-article__info-wrapper {
+  display: block;
+  margin-top: 25px;
+
+  @media only screen and (min-width: 600px) {
+    margin-left: 50px;
+    margin-top: 0;
+    flex-grow: 1;
+  }
+}
+
+.teacher-article__name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-align: center;
+  color: $red_color;
+}
+
+.teacher-article__text {
+  font-size: 1rem;
+  color: $black_color;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.teacher-article__button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.teachers-section__left-article {
+  margin-right: auto;
+}
+
+.teachers-section__right-article {
+  margin-left: auto;
+  flex-direction: row-reverse;
+
+  .teacher-article__info-wrapper {
+    @media only screen and (min-width: 600px) {
+      margin-left: 0;
+      margin-right: 50px;
+    }
+  }
+}

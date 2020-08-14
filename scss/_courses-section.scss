@@ -1,0 +1,25 @@
+.courses-section__container {
+  display: block;
+
+  @media only screen and (min-width: 600px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+}
+
+.course-article {
+  flex: 280px 1 0;
+
+  background: $light4_color;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.course-article__label {
+  display: block;
+
+  text-align: right;
+  font-size: 0.8rem;
+  color: $dark_red_color;
+  padding-right: 30px;
+}

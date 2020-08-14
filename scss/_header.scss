@@ -1,0 +1,260 @@
+$header_height: 65px;
+$sidebar_width: 260px;
+
+.view-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.view-wrapper_sidebar-opened {
+  @media only screen and (max-width: 992px) {
+    .page-wrapper {
+      transform: translateX(-$sidebar_width);
+    }
+
+    .sidebar {
+      transform: translateX(0);
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: $sidebar_width;
+
+  background: $red_color;
+
+  transform: translateX($sidebar_width);
+  transition: transform 0.4s ease-in-out;
+
+  overflow: auto;
+  z-index: 1000;
+
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+.sidebar__close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 16px 12px;
+  box-sizing: content-box;
+
+  font-size: 1.8rem;
+  color: $light_red_color;
+
+  transition: color 0.05s linear;
+
+  &:hover {
+    cursor: pointer;
+    color: $white_color;
+  }
+  z-index: 100;
+}
+
+.page-wrapper {
+  transition: transform 0.4s ease-in-out;
+}
+
+.header {
+  height: $header_height;
+
+  border-bottom: 1px solid $light3_color;
+
+  z-index: 100;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+
+  padding-left: 20px;
+}
+
+.header__title {
+  color: $black_color;
+
+  font-size: 1.5rem;
+  font-variant-caps: small-caps;
+  text-decoration: none;
+
+  line-height: $header_height;
+}
+
+.header__nav-toggler {
+  display: inline-block;
+
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  padding: calc(#{$header_height / 2} - 0.7rem);
+
+  color: $dark_color;
+
+  transition: color 0.2s linear;
+
+  &:hover {
+    cursor: pointer;
+    color: $black_color;
+  }
+
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+}
+
+.mobile-nav__links {
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  font-size: 1.1rem;
+  font-variant-caps: small-caps;
+  font-weight: 600;
+}
+
+.mobile-nav__link {
+  display: block;
+  padding: 20px;
+
+  text-decoration: none;
+  color: $light_red_color;
+  transition: color 0.1s linear;
+
+  &:hover {
+    color: $white_color;
+  }
+}
+
+.desktop-nav {
+  display: none;
+
+  @media only screen and (min-width: 992px) {
+    display: block;
+  }
+}
+
+.desktop-nav__links {
+  font-size: 0.9rem;
+  font-variant-caps: small-caps;
+  font-weight: 600;
+  line-height: $header_height;
+
+  padding: 0;
+  margin: 0;
+
+  & > li {
+    display: inline-block;
+    margin: 0 12px;
+  }
+}
+
+.language-selector {
+  display: inline-block;
+  color: $dark_color;
+  transition: color 0.2s linear;
+
+  position: relative;
+
+  &:hover {
+    color: $black_color;
+
+    & > .language-selector__menu-wrapper {
+      z-index: 100;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.language-selector__menu-wrapper {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.1s linear, transform 0.1s linear;
+
+  width: 95px;
+  position: absolute;
+  top: -100%;
+  right: -20px;
+
+  text-align: left;
+
+  z-index: -100;
+}
+
+.language-selector__menu {
+  display: block;
+  position: relative;
+  top: 40px;
+
+  border-radius: 5px;
+  border: 1px solid $light2_color;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background: $white_color;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  list-style-type: none;
+  padding: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(-0.45 * 1.25rem - 1px);
+    right: 19px;
+
+    border-left: calc(0.45 * 1.25rem + 1px) solid transparent;
+    border-right: calc(0.45 * 1.25rem + 1px) solid transparent;
+    border-bottom: calc(0.45 * 1.25rem + 1px) solid $light2_color;
+
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -0.45 * 1.25rem;
+    right: 20px;
+
+    border-left: 0.45 * 1.25rem solid transparent;
+    border-right: 0.45 * 1.25rem solid transparent;
+    border-bottom: 0.45 * 1.25rem solid $white_color;
+  }
+
+  li {
+    padding: 12px 15px;
+    margin: 0;
+
+    border-bottom: 1px solid $light2_color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.short-language-selector {
+  text-align: center;
+  font-weight: 100;
+  color: $light_red_color;
+}
+
+.short-language-selector__link {
+  padding: 7px;
+
+  font-weight: normal;
+  text-decoration: none;
+  color: $light_red_color;
+
+  transition: color 0.1s linear;
+
+  &:hover {
+    color: $white_color;
+  }
+}
